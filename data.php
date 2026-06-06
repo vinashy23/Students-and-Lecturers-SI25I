@@ -1,0 +1,16 @@
+<?php
+
+include 'connection.php';
+
+$query = mysqli_query($conn, "SELECT * FROM lecturer");
+
+$data = [];
+
+while ($row = mysqli_fetch_assoc($query)) {
+    $data[] = $row;
+}
+
+header('Content-Type: application/json');
+echo json_encode($data);
+
+?>
